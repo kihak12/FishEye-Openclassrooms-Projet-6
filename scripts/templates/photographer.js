@@ -1,7 +1,7 @@
 function photographerTemplate(data) {
     const {name, portrait} = data;
 
-    const picture = `./FishEye-Openclassrooms-Projet-6/assets/photographers/${portrait}`;
+    const picture = `/FishEye-Openclassrooms-Projet-6/assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
         const article = document.createElement('article');
