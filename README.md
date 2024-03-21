@@ -1,6 +1,8 @@
-# Base de code du projet P6 - Parcours Front-end
+# GameOn Openclassrooms
 
-## Démarrer le projet
+### Github Repository
+https://github.com/kihak12/FishEye-Openclassrooms-Projet-6
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
+### Visit live website
 
+https://kihak12.github.io/FishEye-Openclassrooms-Projet-6/
