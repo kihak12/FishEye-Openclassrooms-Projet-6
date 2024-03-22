@@ -1,12 +1,12 @@
 async function getPhotographers() {
-    return await fetch('/FishEye-Openclassrooms-Projet-6/data/photographers.json').then(response => response.json());
+    return await fetch('https://kihak12.github.io/FishEye-Openclassrooms-Projet-6/data/photographers.json').then(response => response.json());
 }
 
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
 
     photographers.forEach((photographer) => {
-        const userCardDOM = photographer.photographerTemplateCardDOM();
+        const userCardDOM = photographer.getTemplateCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
 }

@@ -38,14 +38,14 @@ class Photographer {
     }
 
     get portraitLink() {
-        return `/FishEye-Openclassrooms-Projet-6/assets/photographers/${this._portrait}`;
+        return `https://kihak12.github.io/FishEye-Openclassrooms-Projet-6/assets/photographers/${this._portrait}`;
     }
 
     get profileLink() {
-        return `/FishEye-Openclassrooms-Projet-6/photographer.html?id=${this._id}`;
+        return `https://kihak12.github.io/FishEye-Openclassrooms-Projet-6/photographer.html?id=${this._id}`;
     }
 
-    photographerTemplateCardDOM = () => {
+    getTemplateCardDOM = () => {
         const article = document.createElement('article');
         const articleContent = document.createElement('div');
         articleContent.classList.add('content');
@@ -91,6 +91,27 @@ class Photographer {
 
         /// Append every information in the DOM article
         article.appendChild(articleContent);
+        return (article);
+    }
+
+    getTemplateDetailsDOM = () => {
+        const article = document.createElement('article');
+
+        /// Profile Name
+        const nameField = document.createElement('h1');
+        nameField.textContent = this._name;
+        article.appendChild(nameField);
+
+        /// Profile Location
+        const locationField = document.createElement('span');
+        locationField.textContent = `${this._city}, ${this._country}`;
+        article.appendChild(locationField);
+
+        /// Profile Description
+        const descriptionField = document.createElement('p');
+        descriptionField.textContent = `${this._tagline}`;
+
+        article.appendChild(descriptionField);
         return (article);
     }
 }

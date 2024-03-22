@@ -4,8 +4,37 @@
 
 .photograph-header {
     background-color: #FAFAFA;
+    max-width: 1440px;
+    width: 90%;
+    margin: auto;
     height: 300px;
-    margin: 0 100px;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    align-items: center;
+    gap: 2em;
+}
+
+.photograph-header .user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-details h1 {
+    font-size: 64px;
+    font-weight: 400;
+    color: #D3573C;
+    margin: 0;
+}
+
+.user-details span {
+    font-size: 24px;
+    color: #901C1C;
+}
+.user-details p {
+    font-size: 18px;
+    color: #525252;
 }
 
 .contact_button {
