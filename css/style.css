@@ -95,4 +95,5 @@ a {
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius: 50%;
 }
