@@ -31,7 +31,6 @@ a {
 
 .logo {
     height: 50px;
-    margin-left: 100px;
 }
 
 .photographer_section {
@@ -62,6 +61,7 @@ a {
     border-radius: 50%;
     height: 200px;
     width: 200px;
+    object-fit: cover;
 }
 
 .card-cover-rounded img {

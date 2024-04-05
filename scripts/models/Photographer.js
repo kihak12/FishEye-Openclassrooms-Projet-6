@@ -38,11 +38,11 @@ class Photographer {
     }
 
     get portraitLink() {
-        return `https://kihak12.github.io/FishEye-Openclassrooms-Projet-6/assets/photographers/${this._portrait}`;
+        return `./assets/medias/photographers_photos/${this._portrait}`;
     }
 
     get profileLink() {
-        return `https://kihak12.github.io/FishEye-Openclassrooms-Projet-6/photographer.html?id=${this._id}`;
+        return `./photographer.html?id=${this._id}`;
     }
 
     getTemplateCardDOM = () => {

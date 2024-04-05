@@ -1,0 +1,36 @@
+.media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em 12em
+}
+
+.media-card {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+.media-card img, .media-card video{
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.media-title {
+    font-size: 24px;
+    color: #901C1C;
+    margin: 0;
+}
+
+.media-likes {
+    font-size: 16px;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    gap: 1em;
+}

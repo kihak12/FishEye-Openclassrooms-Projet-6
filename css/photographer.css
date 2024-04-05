@@ -2,16 +2,30 @@
     display: none;
 }
 
-.photograph-header {
-    background-color: #FAFAFA;
+main, header {
     max-width: 1440px;
     width: 90%;
     margin: auto;
-    height: 300px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.photograph-header {
+    background-color: #FAFAFA;
     padding: 50px;
     display: grid;
     grid-template-columns: 2fr 2fr 1fr;
     align-items: center;
+    gap: 2em;
+}
+
+.photograph-content {
+    display: flex;
+    flex-direction: column;
     gap: 2em;
 }
 
@@ -35,6 +49,18 @@
 .user-details p {
     font-size: 18px;
     color: #525252;
+}
+
+.photographer-galerie-filter {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.photographer-galerie-filter span {
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 10px;
 }
 
 .contact_button {
