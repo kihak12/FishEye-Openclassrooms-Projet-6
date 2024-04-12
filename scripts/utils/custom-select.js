@@ -35,7 +35,8 @@ for (i = 0; i < l; i++) {
                         y[k].removeAttribute("class");
                     }
                     this.setAttribute("class", "same-as-selected");
-                    displayPhotographerMedia(photographerDetails.medias, h.innerHTML);
+                    photographerDetails.medias = sortMedias(photographerDetails.medias, h.innerHTML);
+                    displayPhotographerMedia(photographerDetails.medias);
                     break;
                 }
             }

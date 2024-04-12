@@ -12,6 +12,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    padding-bottom: 80px;
 }
 
 .photograph-header {
@@ -74,6 +75,30 @@ main {
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.photograph-small-info {
+    position: fixed;
+    bottom: 0;
+    right: 10%;
+}
+.photograph-small-info-content {
+    background-color: #DB8876;
+    border-radius: 7px 7px 0 0;
+    width: 400px;
+    height: 70px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.photograph-likes {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .modal {

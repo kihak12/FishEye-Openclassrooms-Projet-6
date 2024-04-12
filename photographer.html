@@ -11,7 +11,9 @@
 </head>
 <body>
 <header>
-    <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
+    <a href="index.html">
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
+    </a>
 </header>
 <main id="main">
     <section class="photograph-header">
@@ -36,6 +38,17 @@
         </div>
     </section>
 </main>
+<section class="photograph-small-info">
+    <div class="photograph-small-info-content">
+        <div class="photograph-likes">
+            <span id="user-total-likes"></span>
+            <img src="/assets/icons/black-heart.svg" alt="black heart icon">
+        </div>
+        <div>
+            <span id="user-price"></span>
+        </div>
+    </div>
+</section>
 <div id="contact_modal">
     <div class="modal">
         <header>
@@ -51,6 +64,8 @@
         </form>
     </div>
 </div>
+<dialog class="dialog-modal" id="lightbox_modal"></dialog>
+
 <script src="./scripts/models/Photographer.js"></script>
 <script src="./scripts/models/Media.js"></script>
 <script src="./scripts/pages/photographer.js"></script>

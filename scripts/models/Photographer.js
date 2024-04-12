@@ -45,6 +45,10 @@ class Photographer {
         return `./photographer.html?id=${this._id}`;
     }
 
+    get dailyPrice() {
+        return `${this._price}€ / jour`
+    }
+
     getTemplateCardDOM = () => {
         const article = document.createElement('article');
         const articleContent = document.createElement('div');
@@ -85,7 +89,7 @@ class Photographer {
 
         /// Profile Price
         const pPrice = document.createElement('p');
-        pPrice.textContent = `${this._price}€/jour`;
+        pPrice.textContent = this.dailyPrice;
         pPrice.classList.add('user-price');
         articleContent.appendChild(pPrice);
 
