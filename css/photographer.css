@@ -54,7 +54,7 @@ main {
     gap: 2em;
 }
 
-.photographer-galerie-filter span {
+.photographer-galerie-filter label {
     font-weight: bold;
     font-size: 18px;
     padding-top: 10px;

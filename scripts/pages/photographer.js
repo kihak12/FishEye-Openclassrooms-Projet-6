@@ -15,7 +15,7 @@ async function displayData(photographerDetails) {
 
     const photographerProfilePicture = document.querySelector("#photographer-portrait")
     photographerProfilePicture.setAttribute('src', photographer.portraitLink);
-    photographerProfilePicture.setAttribute('alt', photographer.name);
+    photographerProfilePicture.setAttribute('alt', `Portrait photo of ${photographer.name}`);
 
     const photographerDetailsSection = document.querySelector(".user-details");
     photographerDetailsSection.appendChild(photographer.getTemplateDetailsDOM());

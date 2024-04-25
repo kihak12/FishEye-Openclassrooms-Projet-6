@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <link href="./css/style.css" rel="stylesheet" type="text/css"/>
     <link href="./css/media.css" rel="stylesheet" type="text/css"/>
@@ -19,13 +19,13 @@
     <section class="photograph-header">
         <div class="user-details"></div>
         <button class="contact_button" onclick="displayContactModal()">Contactez-moi</button>
-        <img id="photographer-portrait" class="card-cover-rounded" />
+        <img id="photographer-portrait" class="card-cover-rounded" alt="Portrait photo of the photographer" />
     </section>
     <section class="photograph-content">
         <div class="photographer-galerie-filter">
-            <span>Trier par Popularité</span>
+            <label for="order-by">Trier par Popularité</label>
             <div class="custom-select" style="width:200px;">
-                <select aria-label="Order by">
+                <select aria-label="Order by" id="order-by">
                     <option value="popular">Popularité</option>
                     <option value="1">Popularité</option>
                     <option value="date">Date</option>
