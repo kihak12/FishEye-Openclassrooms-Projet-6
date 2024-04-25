@@ -94,7 +94,7 @@ class Media {
         mediaLikes.appendChild(numberOfLikes);
 
         const heartIcon = document.createElement('img');
-        heartIcon.setAttribute('src', '/assets/icons/heart.svg');
+        heartIcon.setAttribute('src', './assets/icons/heart.svg');
         mediaLikes.appendChild(heartIcon);
 
         mediaLikes.classList.add('media-likes');
