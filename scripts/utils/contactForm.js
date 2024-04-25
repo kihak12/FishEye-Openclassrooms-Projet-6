@@ -1,9 +1,10 @@
-function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+const modal = document.getElementById("contact_modal");
+
+function displayContactModal() {
+    document.getElementById('contact-photographer-name').innerText= photographerDetails.photographer.name;
+	modal.showModal();
 }
 
-function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+function closeContactModal() {
+    modal.close();
 }

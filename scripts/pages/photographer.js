@@ -75,8 +75,8 @@ function displayLightboxModal(indexOfCardClicked) {
     /// If a previous media exist
     if(sortedMediasList[indexOfCardClicked - 1]) {
         const previousIcon =  document.createElement('img');
-        previousIcon.setAttribute("alt", currentMedia._title);
-        previousIcon.setAttribute("src", '/assets/icons/arrow.svg');
+        previousIcon.setAttribute("alt", 'Show previous image');
+        previousIcon.setAttribute("src", './assets/icons/arrow.svg');
         previousButton.classList.add('-clickable');
 
         previousButton.onclick = () => displayLightboxModal(indexOfCardClicked - 1);
@@ -104,8 +104,8 @@ function displayLightboxModal(indexOfCardClicked) {
 
     const closeButton = document.createElement('button');
     const closeIcon =  document.createElement('img');
-    closeIcon.setAttribute("alt", currentMedia._title);
-    closeIcon.setAttribute("src", '/assets/icons/close-red.svg');
+    closeIcon.setAttribute("alt", 'Close image slider');
+    closeIcon.setAttribute("src", './assets/icons/close-red.svg');
     closeButton.appendChild(closeIcon);
     closeButton.className = 'slider-button-icon -close';
     closeButton.onclick = () => document.getElementById('lightbox_modal').close()
@@ -117,8 +117,8 @@ function displayLightboxModal(indexOfCardClicked) {
     /// If a next media exist
     if(sortedMediasList[indexOfCardClicked + 1]) {
         const nextIcon =  document.createElement('img');
-        nextIcon.setAttribute("alt", currentMedia._title);
-        nextIcon.setAttribute("src", '/assets/icons/arrow.svg');
+        nextIcon.setAttribute("alt", 'Show next image');
+        nextIcon.setAttribute("src", './assets/icons/arrow.svg');
         nextButton.classList.add('-clickable');
 
         nextButton.onclick = () => displayLightboxModal(indexOfCardClicked + 1);

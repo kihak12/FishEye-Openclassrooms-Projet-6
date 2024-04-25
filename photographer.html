@@ -10,15 +10,15 @@
     <title>Fisheye - photographe </title>
 </head>
 <body>
-<header>
+<header class="main-header">
     <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
+        <img src="./assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
     </a>
 </header>
 <main id="main">
     <section class="photograph-header">
         <div class="user-details"></div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayContactModal()">Contactez-moi</button>
         <img id="photographer-portrait" class="card-cover-rounded" />
     </section>
     <section class="photograph-content">
@@ -42,28 +42,44 @@
     <div class="photograph-small-info-content">
         <div class="photograph-likes">
             <span id="user-total-likes"></span>
-            <img src="/assets/icons/black-heart.svg" alt="black heart icon">
+            <img src="./assets/icons/black-heart.svg" alt="black heart icon">
         </div>
         <div>
             <span id="user-price"></span>
         </div>
     </div>
 </section>
-<div id="contact_modal">
+
+<dialog class="dialog-modal" id="contact_modal">
     <div class="modal">
         <header>
-            <h2>Contactez-moi</h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()"/>
+            <div class="contact-form-header">
+                <h2>Contactez-moi</h2>
+                <img onclick="closeContactModal()" src="./assets/icons/close.svg" alt="close modal">
+            </div>
+            <h2 id="contact-photographer-name"></h2>
         </header>
         <form>
-            <div>
-                <label>Prénom</label>
-                <input/>
+            <div class="form-input-field">
+                <label for="prenom" >Prénom</label>
+                <input name="prenom" id="prenom"/>
             </div>
-            <button class="contact_button">Envoyer</button>
+            <div class="form-input-field">
+                <label for="nom">Nom</label>
+                <input name="nom" id="nom"/>
+            </div>
+            <div class="form-input-field">
+                <label for="mail">Mail</label>
+                <input name="mail" id="mail" type="email" />
+            </div>
+            <div class="form-input-field">
+                <label for="message">Votre message</label>
+                <textarea name="message" id="message" rows="4"></textarea>
+            </div>
+            <input class="contact_button" id="contact-button-trigger" type="submit" value="Envoyer" />
         </form>
     </div>
-</div>
+</dialog>
 <dialog class="dialog-modal" id="lightbox_modal"></dialog>
 
 <script src="./scripts/models/Photographer.js"></script>
