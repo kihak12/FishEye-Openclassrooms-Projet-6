@@ -8,6 +8,7 @@ for (i = 0; i < l; i++) {
     /* For each element, create a new DIV that will act as the selected item: */
     a = document.createElement("DIV");
     a.setAttribute("class", "select-selected");
+    a.setAttribute("tabindex", "0");
     a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
     x[i].appendChild(a);
     /* For each element, create a new DIV that will contain the option list: */
@@ -18,6 +19,32 @@ for (i = 0; i < l; i++) {
         create a new DIV that will act as an option item: */
         c = document.createElement("DIV");
         c.innerHTML = selElmnt.options[j].innerHTML;
+
+        c.setAttribute("tabindex", "0");
+        c.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                var y, i, k, s, h, sl, yl;
+                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                sl = s.length;
+                h = this.parentNode.previousSibling;
+                for (i = 0; i < sl; i++) {
+                    if (s.options[i].innerHTML === this.innerHTML) {
+                        s.selectedIndex = i;
+                        h.innerHTML = this.innerHTML;
+                        y = this.parentNode.getElementsByClassName("same-as-selected");
+                        yl = y.length;
+                        for (k = 0; k < yl; k++) {
+                            y[k].removeAttribute("class");
+                        }
+                        this.setAttribute("class", "same-as-selected");
+                        photographerDetails.medias = sortMedias(photographerDetails.medias, h.innerHTML);
+                        displayPhotographerMedia(photographerDetails.medias);
+                        break;
+                    }
+                }
+                h.click();
+            }
+        });
         c.addEventListener("click", function(e) {
             /* When an item is clicked, update the original select box,
             and the selected item: */
@@ -45,6 +72,14 @@ for (i = 0; i < l; i++) {
         b.appendChild(c);
     }
     x[i].appendChild(b);
+    a.addEventListener("keydown", function(e) {
+        if (e.code === 'Enter') {
+            e.stopPropagation();
+            closeAllSelect(this);
+            this.nextSibling.classList.toggle("select-hide");
+            this.classList.toggle("select-arrow-active");
+        }
+    });
     a.addEventListener("click", function(e) {
         /* When the select box is clicked, close any other select boxes,
         and open/close the current select box: */

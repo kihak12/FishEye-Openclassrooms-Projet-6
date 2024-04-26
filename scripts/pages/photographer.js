@@ -48,10 +48,13 @@ function displayPhotographerMedia(){
 
 function initLightboxModalNavigation(mediaList) {
     document.querySelectorAll('[card-image]').forEach(card => {
+        const indexOfCardClicked = mediaList.indexOf(mediaList.find(i => i._id === parseInt(card.getAttribute('card-image').valueOf())))
         card.addEventListener('click', () => {
-            const indexOfCardClicked = mediaList.indexOf(mediaList.find(i => i._id === parseInt(card.getAttribute('card-image').valueOf())))
             displayLightboxModal(indexOfCardClicked);
         });
+        card.onkeydown = (event) => {
+            event.code === 'Enter' && displayLightboxModal(indexOfCardClicked);
+        }
     });
 }
 

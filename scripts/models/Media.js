@@ -62,6 +62,7 @@ class Media {
         const media = this._image ? document.createElement('img') : document.createElement('video');
         media.setAttribute("alt", this._title);
         media.setAttribute("card-image", this._id);
+        media.setAttribute("tabindex", "0");
 
         if(this._image) {
             media.setAttribute("src", this.imageLink);
