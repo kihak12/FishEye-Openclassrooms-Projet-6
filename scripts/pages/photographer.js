@@ -84,6 +84,8 @@ function displayLightboxModal(indexOfCardClicked) {
 
         previousButton.onclick = () => displayLightboxModal(indexOfCardClicked - 1);
         previousButton.appendChild(previousIcon);
+    }else{
+        previousButton.setAttribute("disabled", 'true');
     }
     article.appendChild(previousButton);
 
@@ -126,6 +128,8 @@ function displayLightboxModal(indexOfCardClicked) {
 
         nextButton.onclick = () => displayLightboxModal(indexOfCardClicked + 1);
         nextButton.appendChild(nextIcon);
+    }else{
+        nextButton.setAttribute("disabled", 'true');
     }
 
     article.appendChild(nextButton);
