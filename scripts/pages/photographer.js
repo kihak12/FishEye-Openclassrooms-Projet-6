@@ -9,6 +9,7 @@ async function getPhotographerDetails(photographerId) {
 
 let photographerDetails;
 let sortedMediasList;
+let globalIndexOfCardClicked;
 
 async function displayData(photographerDetails) {
     const photographer = photographerDetails.photographer;
@@ -58,15 +59,9 @@ function initLightboxModalNavigation(mediaList) {
     });
 }
 
-function displayPhotographerTotalLikes() {
-    document.getElementById('user-total-likes').textContent = photographerDetails.medias.reduce((acc, media) => acc + media._likes, 0);
-}
-
-function displayPhotographerPrice() {
-    document.getElementById('user-price').textContent = photographerDetails.photographer.dailyPrice;
-}
-
 function displayLightboxModal(indexOfCardClicked) {
+    document.removeEventListener('keydown', initializeKeyBoardNavigation);
+    globalIndexOfCardClicked = indexOfCardClicked;
     const currentMedia = sortedMediasList[indexOfCardClicked];
 
     const article = document.createElement('article');
@@ -113,7 +108,10 @@ function displayLightboxModal(indexOfCardClicked) {
     closeIcon.setAttribute("src", './assets/icons/close-red.svg');
     closeButton.appendChild(closeIcon);
     closeButton.className = 'slider-button-icon -close';
-    closeButton.onclick = () => document.getElementById('lightbox_modal').close()
+    closeButton.onclick = () => {
+        document.removeEventListener('keydown', initializeKeyBoardNavigation);
+        document.getElementById('lightbox_modal').close();
+    }
 
     article.appendChild(closeButton);
 
@@ -137,8 +135,28 @@ function displayLightboxModal(indexOfCardClicked) {
     const lightbox_modal = document.getElementById('lightbox_modal')
     lightbox_modal.innerHTML = '';
     lightbox_modal.appendChild(article);
+
+    document.addEventListener('keydown', initializeKeyBoardNavigation);
+
     lightbox_modal.showModal()
 }
+
+function displayPhotographerTotalLikes() {
+    document.getElementById('user-total-likes').textContent = photographerDetails.medias.reduce((acc, media) => acc + media._likes, 0);
+}
+
+function displayPhotographerPrice() {
+    document.getElementById('user-price').textContent = photographerDetails.photographer.dailyPrice;
+}
+
+function initializeKeyBoardNavigation(event) {
+    if(sortedMediasList[globalIndexOfCardClicked - 1] && event.code === 'ArrowLeft') {
+        displayLightboxModal(globalIndexOfCardClicked - 1)
+    }else if(sortedMediasList[globalIndexOfCardClicked + 1] && event.code === 'ArrowRight') {
+        displayLightboxModal(globalIndexOfCardClicked + 1)
+    }
+}
+
 
 async function init() {
     const urlParams = new URLSearchParams(window.location.search);
