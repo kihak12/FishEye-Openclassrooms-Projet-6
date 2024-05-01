@@ -3,7 +3,7 @@ async function getPhotographerDetails(photographerId) {
     const photographersDetails = await fetch('/FishEye-Openclassrooms-Projet-6/data/photographers.json').then(response => response.json());
     return {
         photographer: new Photographer(photographersDetails.photographers.find(photographer => photographer.id === parseInt(photographerId))),
-        medias: photographersDetails.media.filter(media => media.photographerId === parseInt(photographerId)).map(media => new Media(media)),
+        medias: photographersDetails.media.filter(media => media.photographerId === parseInt(photographerId)).map(media => media.image ? new ImageMedia(media) : new VideoMedia(media)),
     };
 }
 
@@ -53,13 +53,16 @@ function initLightboxModalNavigation(mediaList) {
         card.addEventListener('click', () => {
             displayLightboxModal(indexOfCardClicked);
         });
-        card.onkeydown = (event) => {
-            event.code === 'Enter' && displayLightboxModal(indexOfCardClicked);
-        }
+        card.addEventListener('keydown', (event) => {
+            if(event.code === 'Enter') {
+                event.preventDefault();
+                displayLightboxModal(indexOfCardClicked, event);
+            }
+        });
     });
 }
 
-function displayLightboxModal(indexOfCardClicked) {
+function displayLightboxModal(indexOfCardClicked, event = undefined) {
     document.removeEventListener('keydown', initializeKeyBoardNavigation);
     globalIndexOfCardClicked = indexOfCardClicked;
     const currentMedia = sortedMediasList[indexOfCardClicked];
@@ -75,10 +78,10 @@ function displayLightboxModal(indexOfCardClicked) {
         const previousIcon =  document.createElement('img');
         previousIcon.setAttribute("alt", 'Show previous image');
         previousIcon.setAttribute("src", './assets/icons/arrow.svg');
-        previousButton.classList.add('-clickable');
-
-        previousButton.onclick = () => displayLightboxModal(indexOfCardClicked - 1);
         previousButton.appendChild(previousIcon);
+        previousButton.classList.add('-clickable');
+        previousButton.onclick = () => displayLightboxModal(indexOfCardClicked - 1);
+
     }else{
         previousButton.setAttribute("disabled", 'true');
     }
@@ -91,13 +94,9 @@ function displayLightboxModal(indexOfCardClicked) {
     const media = currentMedia._image ? document.createElement('img') : document.createElement('video');
     media.setAttribute("alt", currentMedia._title);
 
-    if(currentMedia._image) {
-        media.setAttribute("src", currentMedia.imageLink);
-    }
-    else {
-        media.setAttribute("src", currentMedia.videoLink);
-        media.setAttribute("controls", '');
-    }
+    media.setAttribute("src", currentMedia.mediaLink);
+    media.setAttribute("controls", '');
+
     div.appendChild(media);
     div.appendChild(title);
     article.appendChild(div);
