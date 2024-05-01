@@ -16,20 +16,19 @@
 
 /* Style the arrow inside the select element: */
 .select-selected:after {
+    content: url(/assets/icons/dropdown-arrow.svg);
     position: absolute;
-    content: "";
-    top: 42%;
-    right: 10px;
+    top: 23%;
+    right: 25%;
     width: 0;
     height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
 }
 
 /* Point the arrow upwards when the select box is open (active): */
 .select-selected.select-arrow-active:after {
-    border-color: transparent transparent #fff transparent;
-    top: 34%;
+    top: 77%;
+    right: 9%;
+    transform: rotate(180deg);
 }
 
 /* style the items (options), including the selected item: */
