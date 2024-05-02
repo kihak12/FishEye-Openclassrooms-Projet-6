@@ -16,7 +16,7 @@
 
 /* Style the arrow inside the select element: */
 .select-selected:after {
-    content: url(/assets/icons/dropdown-arrow.svg);
+    content: url(./../assets/icons/dropdown-arrow.svg);
     position: absolute;
     top: 23%;
     right: 25%;
