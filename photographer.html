@@ -61,22 +61,22 @@
             </div>
             <h2 id="contact-photographer-name"></h2>
         </header>
-        <form>
+        <form id="contact-form">
             <div class="form-input-field">
                 <label for="prenom" >Prénom</label>
-                <input name="prenom" id="prenom"/>
+                <input name="prenom" id="prenom" required minlength="3"/>
             </div>
             <div class="form-input-field">
                 <label for="nom">Nom</label>
-                <input name="nom" id="nom"/>
+                <input name="nom" id="nom" required minlength="3"/>
             </div>
             <div class="form-input-field">
-                <label for="mail">Mail</label>
-                <input name="mail" id="mail" type="email" />
+                <label for="email">Mail</label>
+                <input name="mail" id="email" type="email" required/>
             </div>
             <div class="form-input-field">
                 <label for="message">Votre message</label>
-                <textarea name="message" id="message" rows="4"></textarea>
+                <textarea name="message" id="message" rows="4" required minlength="10"></textarea>
             </div>
             <input class="contact_button" id="contact-button-trigger" type="submit" value="Envoyer" />
         </form>
