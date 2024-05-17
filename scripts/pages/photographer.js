@@ -38,7 +38,7 @@ function sortMedias(mediaList, sort = 'Popularité') {
     }
 }
 
-function displayPhotographerMedia(){
+function displayPhotographerMedia() {
     const photographerMediasSection = document.querySelector(".media-grid");
     photographerMediasSection.innerHTML = '';
     photographerDetails.medias.forEach(media => {
@@ -54,7 +54,7 @@ function initLightboxModalNavigation(mediaList) {
             displayLightboxModal(indexOfCardClicked);
         });
         card.addEventListener('keydown', (event) => {
-            if(event.code === 'Enter') {
+            if (event.code === 'Enter') {
                 event.preventDefault();
                 displayLightboxModal(indexOfCardClicked, event);
             }
@@ -72,23 +72,23 @@ function displayLightboxModal(indexOfCardClicked, event = undefined) {
     article.ariaLabel = "image closeup view";
 
     const previousButton = document.createElement('button');
-    previousButton.className ='slider-button-icon -reverse';
+    previousButton.className = 'slider-button-icon -reverse';
     /// If a previous media exist
-    if(sortedMediasList[indexOfCardClicked - 1]) {
-        const previousIcon =  document.createElement('img');
+    if (sortedMediasList[indexOfCardClicked - 1]) {
+        const previousIcon = document.createElement('img');
         previousIcon.setAttribute("alt", 'Show previous image');
         previousIcon.setAttribute("src", './assets/icons/arrow.svg');
         previousButton.appendChild(previousIcon);
         previousButton.classList.add('-clickable');
         previousButton.onclick = () => displayLightboxModal(indexOfCardClicked - 1);
 
-    }else{
+    } else {
         previousButton.setAttribute("disabled", 'true');
     }
     article.appendChild(previousButton);
 
-    const div =  document.createElement('div');
-    const title =  document.createElement('h1');
+    const div = document.createElement('div');
+    const title = document.createElement('h1');
     title.textContent = currentMedia._title;
 
     const media = currentMedia._image ? document.createElement('img') : document.createElement('video');
@@ -102,7 +102,7 @@ function displayLightboxModal(indexOfCardClicked, event = undefined) {
     article.appendChild(div);
 
     const closeButton = document.createElement('button');
-    const closeIcon =  document.createElement('img');
+    const closeIcon = document.createElement('img');
     closeIcon.setAttribute("alt", 'Close image slider');
     closeIcon.setAttribute("src", './assets/icons/close-red.svg');
     closeButton.appendChild(closeIcon);
@@ -117,15 +117,15 @@ function displayLightboxModal(indexOfCardClicked, event = undefined) {
     const nextButton = document.createElement('button');
     nextButton.classList.add('slider-button-icon');
     /// If a next media exist
-    if(sortedMediasList[indexOfCardClicked + 1]) {
-        const nextIcon =  document.createElement('img');
+    if (sortedMediasList[indexOfCardClicked + 1]) {
+        const nextIcon = document.createElement('img');
         nextIcon.setAttribute("alt", 'Show next image');
         nextIcon.setAttribute("src", './assets/icons/arrow.svg');
         nextButton.classList.add('-clickable');
 
         nextButton.onclick = () => displayLightboxModal(indexOfCardClicked + 1);
         nextButton.appendChild(nextIcon);
-    }else{
+    } else {
         nextButton.setAttribute("disabled", 'true');
     }
 
@@ -149,9 +149,9 @@ function displayPhotographerPrice() {
 }
 
 function initializeKeyBoardNavigation(event) {
-    if(sortedMediasList[globalIndexOfCardClicked - 1] && event.code === 'ArrowLeft') {
+    if (sortedMediasList[globalIndexOfCardClicked - 1] && event.code === 'ArrowLeft') {
         displayLightboxModal(globalIndexOfCardClicked - 1)
-    }else if(sortedMediasList[globalIndexOfCardClicked + 1] && event.code === 'ArrowRight') {
+    } else if (sortedMediasList[globalIndexOfCardClicked + 1] && event.code === 'ArrowRight') {
         displayLightboxModal(globalIndexOfCardClicked + 1)
     }
 }
